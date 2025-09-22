@@ -1,0 +1,25 @@
+{
+  "image": "11notes/configarr",
+  "name": "configarr",
+  "root": "/configarr",
+  "semver": {
+    "version": "1.15.1"
+  },
+  "readme": {
+    "description": "Run configarr rootless, distroless and secure by default!",
+    "introduction": "[Configarr](https://github.com/raydak-labs/configarr) (created by [raydak-labs](https://github.com/raydak-labs)) is an open-source tool designed to simplify configuration and synchronization for Sonarr and Radarr (and other experimental). It integrates with TRaSH Guides to automate updates of custom formats, quality profiles, and other settings, while also supporting user-defined configurations. Configarr offers flexibility with deployment options like Docker and Kubernetes, ensuring compatibility with the latest versions of Sonarr and Radarr. By streamlining media server management, it saves time, enhances consistency, and reduces manual intervention.",
+    "built": {
+      "raydak-labs/configarr": "https://github.com/raydak-labs/configarr"
+    },
+    "distroless": {
+      "layers": [
+        "11notes/distroless",
+        "11notes/distroless:node",
+        "11notes/distroless:git"
+      ]
+    },
+    "comparison": {
+      "images": ["ghcr.io/raydak-labs/configarr"]
+    }
+  }
+}
