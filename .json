@@ -3,7 +3,7 @@
   "name": "configarr",
   "root": "/configarr",
   "semver": {
-    "version": "1.15.1"
+    "version": "1.16.0"
   },
   "readme": {
     "description": "Run configarr rootless, distroless and secure by default!",
@@ -19,7 +19,9 @@
       ]
     },
     "comparison": {
-      "images": ["ghcr.io/raydak-labs/configarr"]
+      "images": [
+        "ghcr.io/raydak-labs/configarr"
+      ]
     }
   }
 }
