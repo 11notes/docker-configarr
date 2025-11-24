@@ -3,7 +3,7 @@
   "name": "configarr",
   "root": "/configarr",
   "semver": {
-    "version": "1.17.2"
+    "version": "1.18.0"
   },
   "readme": {
     "description": "Run configarr rootless, distroless and secure by default!",
