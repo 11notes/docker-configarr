@@ -9,7 +9,7 @@ x-lockdown: &lockdown
 
 services:
   configarr:
-    image: "11notes/configarr:1.20.0"
+    image: "11notes/configarr:1.21.0"
     <<: *lockdown
     environment:
       TZ: "Europe/Zurich"
