@@ -9,12 +9,13 @@ import (
 	"io"
 	"github.com/go-co-op/gocron/v2"
 
-	"github.com/11notes/go/util"
+	"github.com/11notes/go"
 )
 
 const SCHEDULE = "CONFIGARR_SCHEDULE"
 
 var (
+	Eleven  = eleven.New{}
 	PID int = 0
 )
 
@@ -41,14 +42,14 @@ func main(){
 	}else{
 		// set schedule
 		if _, ok := os.LookupEnv(SCHEDULE); ok {
-			util.Log("inf", "setting schedule: " + os.Getenv(SCHEDULE))
+			Eleven.Log("inf", "setting schedule: " + os.Getenv(SCHEDULE))
 			scheduler, err := gocron.NewScheduler()
 			if err != nil {
-				util.Log("err", "cron error: " + err.Error())
+				Eleven.Log("err", "cron error: " + err.Error())
 			}
 			_, err = scheduler.NewJob(gocron.CronJob(os.Getenv(SCHEDULE), false), gocron.NewTask(run))
 			if err != nil {
-				util.Log("err", "cron error: " + err.Error())
+				Eleven.Log("err", "cron error: " + err.Error())
 			}
 			scheduler.Start()
 		}
@@ -72,22 +73,22 @@ func run(){
 		stdoutScanner := bufio.NewScanner(io.MultiReader(stdout,stderr))
 		for stdoutScanner.Scan() {
 			stdout := stdoutScanner.Text()
-			util.Log("inf", stdout)
+			Eleven.Log("inf", stdout)
 		}
 	}()
 
 	// start process
 	err := cmd.Start()
 	PID = cmd.Process.Pid
-	util.Log("inf", "starting configarr sync process")
+	Eleven.Log("inf", "starting configarr sync process")
 	if err != nil {
-		util.Log("err", "sync error: " + err.Error())
+		Eleven.Log("err", "sync error: " + err.Error())
 	}else{
 		err = cmd.Wait()
 		if err != nil {
-			util.Log("err", "sync error: " + err.Error())
+			Eleven.Log("err", "sync error: " + err.Error())
 		}else{
-			util.Log("inf", "sync complete")
+			Eleven.Log("inf", "sync complete")
 		}
 	}
 }
