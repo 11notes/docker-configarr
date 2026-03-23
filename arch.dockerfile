@@ -2,8 +2,9 @@
 # ║                       SETUP                         ║
 # ╚═════════════════════════════════════════════════════╝
 # GLOBAL
-  ARG APP_UID=1000 \
-      APP_GID=1000 \
+  ARG APP_UID= \
+      APP_GID= \
+      APP_GO_VERSION=0.0 \
       APP_ROOT=/configarr \
       BUILD_SRC=raydak-labs/configarr.git \
       BUILD_ROOT=/configarr
@@ -19,7 +20,7 @@
 # ║                       BUILD                         ║
 # ╚═════════════════════════════════════════════════════╝
 # :: CRON
-  FROM 11notes/go:1.25 AS cron
+  FROM 11notes/go:${APP_GO_VERSION} AS cron
   COPY ./build /
   ARG APP_VERSION \
       BUILD_ROOT=/go/cron \
