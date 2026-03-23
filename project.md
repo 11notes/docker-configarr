@@ -10,7 +10,6 @@ ${{ github:> }}* ... this image has no shell since it is [distroless](https://gi
 ${{ github:> }}* ... this image is auto updated to the latest version via CI/CD
 ${{ github:> }}* ... this image is built and compiled from source
 ${{ github:> }}* ... this image has a custom init process that enables scheduling natively
-${{ github:> }}* ... this image supports 32bit architecture
 ${{ github:> }}* ... this image has a health check
 ${{ github:> }}* ... this image runs read-only
 ${{ github:> }}* ... this image is automatically scanned for CVEs before and after publishing
