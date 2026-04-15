@@ -2,9 +2,9 @@
 # ║                       SETUP                         ║
 # ╚═════════════════════════════════════════════════════╝
 # GLOBAL
-  ARG APP_UID= \
-      APP_GID= \
-      APP_GO_VERSION=0.0 \
+  ARG APP_UID=1000 \
+      APP_GID=1000 \
+      APP_GO_VERSION=0 \
       APP_ROOT=/configarr \
       BUILD_SRC=raydak-labs/configarr.git \
       BUILD_ROOT=/configarr
@@ -62,7 +62,7 @@
 
   RUN set -ex; \
     cd ${BUILD_ROOT}; \
-      pnpm install;
+      pnpm install || pnpm approve-builds --all;
 
   RUN set -ex; \
     cd ${BUILD_ROOT}; \
