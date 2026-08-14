@@ -54,11 +54,12 @@
     sed -i 's#${getEnvs().ROOT_PATH}/repos#${getEnvs().ROOT_PATH}/var#g' ./src/env.ts;
 
   RUN set -ex; \
+    PNPM_VERSION=$(curl -s https://api.github.com/repos/pnpm/pnpm/releases/latest | jq -r '.tag_name' | sed 's|v||'); \
     npm install -g npm; \
     npm install -g corepack; \
     corepack enable; \
-    corepack prepare pnpm; \
-    corepack use pnpm;
+    corepack prepare pnpm@${PNPM_VERSION} --activate; \
+    corepack use pnpm@${PNPM_VERSION};
 
   RUN set -ex; \
     cd ${BUILD_ROOT}; \
