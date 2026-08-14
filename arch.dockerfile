@@ -42,6 +42,7 @@
 
   RUN set -ex; \
     apk --update --no-cache add \
+      jq \
       git \
       pnpm;
 
