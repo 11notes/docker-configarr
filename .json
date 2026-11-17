@@ -24,5 +24,7 @@
         "ghcr.io/raydak-labs/configarr"
       ]
     }
-  }
+  },
+  "unraid": true,
+  "nobody": true
 }
