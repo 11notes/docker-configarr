@@ -55,7 +55,7 @@
     sed -i 's#${getEnvs().ROOT_PATH}/repos#${getEnvs().ROOT_PATH}/var#g' ./src/env.ts;
 
   RUN set -ex; \
-    PNPM_VERSION=$(curl -sSL https://api.github.com/repos/pnpm/pnpm/releases/latest | jq -r '.tag_name' | sed 's|v||'); \
+    PNPM_VERSION=$(curl -fsSL --retry 3 https://api.github.com/repos/pnpm/pnpm/releases/latest | jq -r '.tag_name' | sed 's|v||'); \
     npm install -g npm; \
     npm install -g corepack; \
     corepack enable; \
